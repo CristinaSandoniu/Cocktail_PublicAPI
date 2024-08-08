@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1b1b1b;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #f9f9f9;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f9f9f9;
+    height: 250px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    color: #1b1b1b;
+    text-align: center;
+}
+
+.card p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* change this with JavaScript */
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #1b1b1b; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 100px; 
+    transition: 0.5s; 
+    transform: translateX(-100%); /* Initially hide the sidebar by moving it out of view */
+}
+
+#searchBar {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10%;
+}
+
+
+#categoriesList .btn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f9f9f9;
+    display: block;
+    transition: 0.3s;
+}
+
+#categoriesList a:hover {
+    background-color: #444;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .openbtn {
+    cursor: pointer;
+    background-color: #1b1b1b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .main {
+    transition: margin-left .5s;
+    padding: 16px;
+
+  }
+    .header {
+    transition: margin-left .5s;
+    padding: 16px; 
+}
+
+  .fa-caret-down {
+    float: right;
+    padding: 8px;
+  }
+
+  #subcategories li a{
+    display: flex;
+    padding: 8px 8px 8px 16px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #f9f9f9;
+    text-align: center;
+    justify-content:flex-start
+  }
+  /*generate random cocktail*/
+
+#generateCocktail {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    width: 50%;
+    text-decoration: none;
+    background-color: #1b1b1b;
+    text-align: center;
+    color: #f9f9f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#generateCocktail:hover {
+    background-color: #444;
+}
+
+
+footer {
+    background-color: #1b1b1b;
+    color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/*random cockteils section*/
+
+#randomCocktails {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+ }
+
+ #randomCocktails .img-cocktail {
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+  
+#randomCocktails ul {
+    margin: 10px;
+    list-style: disc inside;
+}
+
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }

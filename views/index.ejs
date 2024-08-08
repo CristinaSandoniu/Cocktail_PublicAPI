@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%- include("partials/header.ejs") %>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#cocktails" id="cocktailsNav" class="openbtn"  onclick="openNav()">Cocktails</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#signin">Sign in</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Welcome.</h1>
+            <p>Discover new and exciting cocktail recipes with our Cocktail Generator.</p>
+        </div>
+    </header>
+    <main id="main">
+            <div class="sidebar" id="categoriesSidebar" >
+                <a href="#" class="closebtn" onclick="closeNav()"> x </a>
+                <input type="text" id="searchBar" placeholder="Search...">
+                <ul id="categoriesList">
+                    <li><a href="#" class="btn dropdown category" >Category <i class="fa fa-caret-down"></i></a>
+                            <!-- <ul id="subcategories">
+                           /* < % categories.forEach(category => { %>*/
+                                <li><a href="#" class="category-link"> /*< %= category.strCategory %>*/ </a></li>
+                            / *< % }) %>*/
+                            </ul> -->
+                    </li>
+                    <li><a href="#"  class="btn dropdown alcooholic">Alcooholic <i class="fa fa-caret-down"></i></a></li>
+                    <li><a href="#"  class="btn dropdown ingredients">Ingredients <i class="fa fa-caret-down"></i></a></li>
+                    <li><a href="#"  class="btn dropdown glass">Glass <i class="fa fa-caret-down"></i></a></li>
+                </ul>
+            </div>
+
+        <section id="randomCocktails" id="cocktail-container">
+            <div class="card">
+                <h2>Random Cocktail</h2>
+                <div id="cocktailDetails">       
+                 <% if (locals.cocktail) { %>
+                    <h2><%= cocktail.strDrink %></h2>
+                    <img class="img-cocktail" src="<%= cocktail.strDrinkThumb/preview %>" alt="<%= cocktail.strDrink %>" style="width:200px;">
+                    <p><strong>Category:</strong> <%= cocktail.strCategory %></p>
+                    <p><strong>Glass:</strong> <%= cocktail.strGlass %></p>
+                    <p><strong>Instructions:</strong> <%= cocktail.strInstructions %></p>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                      <% for(let i = 1; i <= 15; i++) { %>
+                        <% if(cocktail[`strIngredient${i}`]) { %>
+                          <li><%= cocktail[`strIngredient${i}`] %> - <%= cocktail[`strMeasure${i}`] || '' %></li>
+                        <% } %>
+                      <% } %>
+                    </ul>
+                  <% } %>
+
+                  <%if (locals.error) { %>
+                    <div id="tag-error" class="tag-error">
+                      <%=error%>
+                          </div>
+                      <%}%>
+                </div>
+                  
+                <a id="generateCocktail" href="#" class="btn"> Generate Cocktail</a>
+                 
+             </div>
+        </section>
+
+        <section id="contact">
+            <div class="card">
+                <h2>Contact</h2>
+                <p>If you have any questions, feel free to reach out to us at contact@cocktailgen.com.</p>
+            </div>
+        </section>
+    </main>
+<%- include("partials/footer.ejs") %>
+    <script src="/javascript/script.js"></script>
+</body>
+</html>
